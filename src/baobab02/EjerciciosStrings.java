@@ -6,13 +6,14 @@ public class EjerciciosStrings {
 	//que recibe una cadena y devuelva cuántos caracteres no numéricos hay.
 	static int contarCaractereresNoNumericos(String cadena) {
 		String cadenaNumerica = "0123456789";
-		int contador = 0;
+		int contador = cadena.length();
 		for (int i = 0 ; i < cadena.length(); i++) {
+			
 			char charCadena = cadena.charAt(i);
 			for (int j = 0; j < cadenaNumerica.length(); j++) {
 				char charNumerico = cadenaNumerica.charAt(j);
 				if (charCadena == charNumerico) {
-					contador += 1;
+					contador -= 1;
 				}
 			}
 		}
@@ -183,7 +184,7 @@ public class EjerciciosStrings {
 		
 		String ejercicio06 = cadenaDelReves(cadena);
 		int ejercicio07 = puntuacionScrabble(cadena);
-		System.out.println(ejercicio07);
+		System.out.println(ejercicio01);
 		
 		
 	}
