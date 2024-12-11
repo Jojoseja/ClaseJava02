@@ -1,5 +1,10 @@
 package baobab02;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class EjerciciosStrings {
 	//Ejercicio 1 
 	//Escriba la función int contarCaracteresNoNumericos(String cadena) 
@@ -168,13 +173,88 @@ public class EjerciciosStrings {
 		return totalPuntos;
 	}
 	
+	//Ejercicio8
+	//Resuelve el horror de los teclados no estandarizados proporcionando la función String ordenadorAmovil(String numero)
+	//que convierte la entrada del ordenador en un número como si estuviera escrito en un móvil.
+	static String ordenadorAmovil(String numero) {
+		String ordenMovil = "0123456789";
+		String ordenPC = "0789456123";
+		String ordenada = "";
+		for (int i = 0; i < numero.length(); i++) {
+			char charNumero = numero.charAt(i);
+			for (int j = 0; j < ordenPC.length(); j++ ) {
+				char charPC = ordenPC.charAt(j);
+				if (charPC == charNumero) {
+					ordenada += ordenMovil.charAt(j);
+				}
+			}
+		}
+		return ordenada;
+	}
 	
+	//Ejercicio9
+	//Escriba la función String [] ordenarAlfabeticamente(String [] palabras)
+	//que recibe un array de palabras y debe devolver el array en orden alfabético ascendente.
+	static String[] ordenarAlfabeticamente(String [] palabras) {
+		int contador = 0;
+		List<String> palabraLista = Arrays.<String>asList(palabras);
+		String[] palabrasOrdenadas = new String[palabraLista.size()];
+		Collections.sort(palabraLista);
+		for (String palabra : palabraLista) {
+			palabrasOrdenadas[contador] = palabra;
+			contador += 1;
+		}
+		return palabrasOrdenadas;
+	}
+	
+	//Ejercicio10
+	//Escriba la función boolean capicua(int numero)
+	//que devuelve si el número entero es capicúa o no
+	
+	static boolean capicua(int numero) {
+		String cadena = Integer.toString(numero);
+		boolean capi = false;
+		for (int i = 0; i < cadena.length()/2; i++) {
+			if (cadena.charAt(i) != cadena.charAt(cadena.length()-i-1)) {
+				capi = false;
+			} else {
+				capi = true;
+			}
+		}
+		return capi;
+	}
+	
+	//Ejercicio11
+	//Escriba la función boolean palindromo(String cadena)
+	//que nos diga si es un palíndromo o no.
+	
+	static boolean palindromo(String cadena) {
+		cadena = cadena.strip();
+		cadena = cadena.toLowerCase();
+		boolean capi = false;
+		for (int i = 0; i < cadena.length(); i++) {
+			if (cadena.charAt(i) != cadena.charAt(cadena.length()-i-1)) {
+				capi = false;
+			} else {
+				capi = true;
+			}
+		}
+		return capi;
+	}
 	public static void main(String[] args) {
 		
-		String cadena = "niño";
+		String cadena = "a b b  C c c bb a";
+
+		String[] palabras = {"alce", "campeon", "boca"};
+		
+		int numero = 23132;
+		
 		int ejercicio01 = contarCaractereresNoNumericos(cadena);
+		
 		boolean ejercicio02 = todosNumericos(cadena);
+		
 		String ejercicio03 = eliminarVocales(cadena);
+		
 		int ejercicio04 = contarVocales(cadena);
 		
 		//Ejercicio5
@@ -183,9 +263,21 @@ public class EjerciciosStrings {
 		String ejercicio05 = piedraPapelTijera(jugada1, jugada2);
 		
 		String ejercicio06 = cadenaDelReves(cadena);
+		
 		int ejercicio07 = puntuacionScrabble(cadena);
-		System.out.println(ejercicio01);
 		
+		String ejercicio08 = ordenadorAmovil(cadena);
 		
+		String[] ejercicio09 = ordenarAlfabeticamente(palabras);
+		for (String palabrita : ejercicio09) {
+			//System.out.println(palabrita);
+		}
+		
+		boolean ejercicio10 = capicua(numero);
+		
+		boolean ejercicio11 = palindromo(cadena);
+		
+		System.out.println(ejercicio11);
+				
 	}
 }
