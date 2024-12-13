@@ -2,6 +2,7 @@ package arce01;
 
 public class Test01 {
 	public static void main(String[] args) {
-		System.out.println("Hello World");
+		int div = 5 % 15;
+		System.out.println(div);
 	}
 }
