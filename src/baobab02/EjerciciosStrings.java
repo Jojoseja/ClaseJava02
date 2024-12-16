@@ -428,26 +428,36 @@ public class EjerciciosStrings {
 	}
 	
 	//Ejercicio19
-	static void ahorcado(String palabra) {
-		int vidas = 3;
+	static void ahorcado(String palabra, int vidas) {
 		palabra = palabra.toLowerCase();
 		String abc = "abcdefghijklmnñopqrstuvwxyz";
 		String cifrada = "";
 		for (int i = 0; i <palabra.length(); i++) {
 			cifrada += "_";
 		}
+		System.out.println(cifrada);
+		System.out.println("La palabra tiene " + palabra.length() + " letras");
 		boolean juego = true;
 		do {
-			System.out.println("Introduce una Letra");
-			String letra = sc.nextLine();
+			System.out.println(abc);
+			System.out.println("Introduce una Letra: ");
+			String letra = sc.next();
+			letra = letra.toLowerCase();
 			if (letra.length() == 1) {
-				if(letra.indexOf(palabra) == -1 ) {
-					System.out.println("No está la letra" + letra);
+				char[] aux2 = abc.toCharArray();
+				aux2[abc.indexOf(letra)] = '_';
+				abc = String.valueOf(aux2);
+				if(palabra.indexOf(letra) == -1 ) {
+					System.out.println("No está la letra: " + letra);
 					vidas -=1;
+					System.out.println("Te quedan: " + vidas + " vidas");
+					
 				} else {
-					for (int j= 0; j < palabra.length(); j++) {
-						if (letra.charAt[0] == palabra.charAt(j)) {
-							
+					for (int j = 0; j < palabra.length(); j++) {
+						if (letra.charAt(0) == palabra.charAt(j)) {
+							char[] aux = cifrada.toCharArray();
+							aux[j] = letra.charAt(0);
+							cifrada = String.valueOf(aux);
 						}
 					}
 				}
@@ -455,6 +465,10 @@ public class EjerciciosStrings {
 				System.out.println("Introduce solo una letra");
 			}
 			System.out.println(cifrada);
+			if (palabra.equals(cifrada)) {
+				System.out.println("Has ganado!");
+				juego = false;
+			}
 			if (vidas == 0) {
 				juego = false;
 			}
@@ -515,6 +529,6 @@ public class EjerciciosStrings {
 		
 		//String ejercicio18 = cifrarCesar("Hw wx, Euxwh?", -3);
 		//System.out.println(ejercicio19);
-				
+		ahorcado("cabra", 7);
 	}
 }
