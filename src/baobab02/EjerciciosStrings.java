@@ -11,6 +11,7 @@ public class EjerciciosStrings {
 	
 	static Scanner sc = new Scanner(System.in);
 	
+	
 	//Ejercicio 1 
 	//Escriba la función int contarCaracteresNoNumericos(String cadena) 
 	//que recibe una cadena y devuelva cuántos caracteres no numéricos hay.
@@ -444,24 +445,34 @@ public class EjerciciosStrings {
 			String letra = sc.next();
 			letra = letra.toLowerCase();
 			if (letra.length() == 1) {
-				char[] aux2 = abc.toCharArray();
-				aux2[abc.indexOf(letra)] = '_';
-				abc = String.valueOf(aux2);
-				if(palabra.indexOf(letra) == -1 ) {
-					System.out.println("No está la letra: " + letra);
-					vidas -=1;
-					System.out.println("Te quedan: " + vidas + " vidas");
-					
-				} else {
-					for (int j = 0; j < palabra.length(); j++) {
-						if (letra.charAt(0) == palabra.charAt(j)) {
-							char[] aux = cifrada.toCharArray();
-							aux[j] = letra.charAt(0);
-							cifrada = String.valueOf(aux);
+				if (abc.contains(letra)){
+					char[] aux2 = abc.toCharArray();
+					aux2[abc.indexOf(letra)] = '_';
+					abc = String.valueOf(aux2);
+					if(!palabra.contains(letra)) {
+						System.out.println("No está la letra: " + letra);
+						vidas -=1;
+						System.out.println("Te quedan: " + vidas + " vidas");
+
+					} else {
+						for (int j = 0; j < palabra.length(); j++) {
+							if (letra.charAt(0) == palabra.charAt(j)) {
+								char[] aux = cifrada.toCharArray();
+								aux[j] = letra.charAt(0);
+								cifrada = String.valueOf(aux);
+							}
 						}
 					}
 				}
-			} else {
+				else {
+					if (Character.isLetter(letra.charAt(0))){
+						System.out.println("Ya has usado esa letra!");
+				}
+					else {
+						System.out.println("Introduce una letra!");}
+				}
+			}
+				else {
 				System.out.println("Introduce solo una letra");
 			}
 			System.out.println(cifrada);
@@ -471,6 +482,7 @@ public class EjerciciosStrings {
 			}
 			if (vidas == 0) {
 				juego = false;
+				System.out.println("Perdiste !");
 			}
 		} while (juego);
 	}
