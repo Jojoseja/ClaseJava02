@@ -8,7 +8,7 @@ public class Kaprekar {
     static int ordenarNumero (int num, boolean ord){
         String numl = Integer.toString(num);
         char[] numArray = new char[numl.length()];
-        for (int i = 0 ; i < numl.length(); i++){
+        for (int i = 0; i < numl.length(); i++){
             numArray[i] = numl.charAt(i);
         }
         Arrays.sort(numArray);
@@ -48,17 +48,18 @@ public class Kaprekar {
             numerin = sc.nextInt();
             String numS = Integer.toString(numerin);
             if (numS.length() != 4){
-                System.out.println("Introduce un número de 4 cifras");
                 valid = false;
             } else {
                 char numC = numS.charAt(0);
                 for (int i = 0; i < numS.length(); i++){
                     if (numS.charAt(i) != numC){
                         repetir = false;
+                        valid = true;
                     }
                 }
                 if (repetir){
                     System.out.println("Introduce un número donde no se repitan todas las cifras");
+                    valid = false;
                 }
             }
 

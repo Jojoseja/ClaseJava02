@@ -9,11 +9,13 @@ public class teoriaObjetos01 {
         int x = 5;
     }
 
+    //Se pueden iniciar o no
     public static class persona{
         String fname;
         String lname;
         int edad;
     }
+
     public static void main(String[] args) {
         //se crea el objeto {myObj} de la clase que hemos creado, se pueden hacer tantos objetos como se quiera
         num5 myObj = new num5();
