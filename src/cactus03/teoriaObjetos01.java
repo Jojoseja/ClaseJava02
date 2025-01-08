@@ -2,7 +2,6 @@ package cactus03;
 
 public class teoriaObjetos01 {
 
-
     //se crean la class
     public static class num5{
         //en este caso x es un atributo
