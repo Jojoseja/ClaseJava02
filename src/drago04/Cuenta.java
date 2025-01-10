@@ -1,24 +1,24 @@
 package drago04;
 
 public class Cuenta {
-    float saldo;
-
-    public Cuenta(float saldo) {
-        this.saldo = saldo;
+    double saldo;
+    public Cuenta(){
+        saldo = 0.0f;
     }
-
-    void ingreso(float num){
-        this.saldo += num;
+    public Cuenta(double valor){
+        this.saldo = valor;
     }
-    void reintegro(float num){
-        this.saldo -= num;
-    }
-
-    public float getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(float saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+    public void reintegro(double valor){
+        saldo = saldo - valor;
+    }
+    public void ingreso(double valor){
+        saldo += valor;
     }
 }

@@ -1,6 +1,6 @@
 package cactus03;
 
-public class teoriaObjetos02 {
+public class TeoriaObjetos02 {
 
     static class awa{
         //Las clases pueden tener metodos tambien

@@ -2,7 +2,7 @@ package cactus03;
 
 /*Encapsulación*/
 
-public class teoriaObjetos03 {
+public class TeoriaObjetos03 {
     public class Coche{
         /*
         Al poner los atributos privados no pueden ser modificados directamente,

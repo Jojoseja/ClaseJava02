@@ -1,13 +1,18 @@
 package cactus03;
 
-public class teoriaObjetos04 {
+public class TeoriaObjetos04 {
     //Un constructor sirve para establecer una forma de crear un objeto
     public class Coche{
         String marca;
         String modelo;
         int cv;
 
-         public Coche(String marca, String modelo, int cv){
+        //Constructor Vacio
+        public Coche(){
+
+        }
+
+        public Coche(String marca, String modelo, int cv){
             this.marca = marca;
             this.modelo = modelo;
             this.cv = cv;

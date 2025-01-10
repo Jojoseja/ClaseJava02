@@ -1,6 +1,6 @@
 package cactus03;
 
-public class teoriaObjetos01 {
+public class TeoriaObjetos01 {
 
     //se crean la class
     public static class num5{
