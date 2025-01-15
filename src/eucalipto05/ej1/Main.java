@@ -12,5 +12,6 @@ public class Main {
         System.out.println(es01);
         Estudiante es02 = new Estudiante("Paco", 15, "20B");
         System.out.println(es02);
+        System.out.println(Estudiante.getCont());
     }
 }
