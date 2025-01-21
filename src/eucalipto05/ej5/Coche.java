@@ -1,6 +1,10 @@
 package eucalipto05.ej5;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.regex.*;
 
 public class Coche {
     String modelo;
@@ -10,22 +14,33 @@ public class Coche {
     boolean valida;
     enum Tipo {MINI, UTILITARIO, FAMILIAR, DEPORTIVO};
     Tipo tipo;
-    Date año;
+    Date year;
     enum Seguro {TERCEROS, ATODORIESGO};
     private Seguro seguro;
 
-    /*public validarMatricula(){
-        String matri = this.matricula;
-        for
-    }*/
+    public static boolean isValid(String input) {
+        // Define a regex pattern to match exactly 4 letters and 3 numbers
+        String regex = "^[A-Za-z]{4}\\d{3}$";
 
-    public Coche(String modelo, String color, boolean metalizada, String matricula, Tipo tipo, Date año, Seguro seguro) {
+        // Compile the pattern
+        Pattern pattern = Pattern.compile(regex);
+
+        // Create a matcher for the input string
+        Matcher matcher = pattern.matcher(input);
+
+        // Return true if the input matches the regex pattern
+        return matcher.matches();
+    }
+
+    public Coche(String modelo, String color, boolean metalizada, String matricula, Tipo tipo, int year, Seguro seguro) {
         this.modelo = modelo;
         this.color = color;
         this.metalizada = metalizada;
         this.matricula = matricula;
+        this.valida = isValid(matricula);
+        LocalDate localDate = LocalDate.of(year, 1, 1);
+        this.year = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
         this.tipo = tipo;
-        this.año = año;
         this.seguro = seguro;
     }
 
@@ -77,12 +92,12 @@ public class Coche {
         this.tipo = tipo;
     }
 
-    public Date getAño() {
-        return año;
+    public Date getYear() {
+        return year;
     }
 
-    public void setAño(Date año) {
-        this.año = año;
+    public void setYear(Date year) {
+        this.year = year;
     }
 
     public Seguro getSeguro() {
@@ -102,7 +117,7 @@ public class Coche {
                 ", matricula='" + matricula + '\'' +
                 ", valida=" + valida +
                 ", tipo=" + tipo +
-                ", año=" + año +
+                ", year=" + year +
                 ", seguo=" + seguro +
                 '}';
     }
