@@ -11,7 +11,7 @@ public class Main {
         Pokemon pok5 = new Pokemon("Pachu2", "Eléctrico", 25, 55, 35);
         Pokemon pok6 = new Pokemon("Pochu2", "Eléctrico", 25, 55, 35);
         Pokemon[] equipo1 = {pok1,pok2};
-        Pokemon[] equipo2 = {pok3,pok4,pok5,pok6};
+        Pokemon[] equipo2 = {pok3,pok4,pok5};
         Jugador jug1 = new Jugador("Rojo", equipo1);
         Jugador jug2 = new Jugador("Azul", equipo2);
         Combate com1 = new Combate(jug1,jug2);
