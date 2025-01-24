@@ -1,6 +1,7 @@
 package eucalipto05.extra02;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Sala {
     private int numeroSala;
@@ -93,38 +94,40 @@ public class Sala {
     }
 
     public int generarButaca(){
-        int butaca=0;
-        int number;
-        boolean testing = true;
-        int contador=0;
-        if (butacaCheck()) {
-            do {
-                number = (int)(Math.random() * this.capacidad);
-                for (int i : this.butacasCompradas){
-                    contador += 1;
-                    if (i == number) {
-                        butaca = number;
-                        this.butacasCompradas[contador] = 0;
-                        testing = false;
-                        break;
-                    }
-                }
-            } while (testing);
-        } else {
-            System.out.println("No quedan Butacas");
-        }
-        return butaca;
-    }
-
-    public boolean butacaCheck(){
-        boolean butacasDisponibles = false;
-        for (int num : this.butacasCompradas){
-            if (num != 0) {
-                butacasDisponibles = true;
-                break;
+        Random random = new Random();
+        boolean butacaDisponible = true;
+        int butaca;
+        do {
+            int randomIndex = random.nextInt(this.capacidad);
+            butaca = this.butacasCompradas[randomIndex];
+            if (butaca == this.butacas[randomIndex]){
+                this.butacasCompradas[randomIndex] = 0;
+                butacaDisponible = false;
             }
-        }
-        return butacasDisponibles;
+        } while (butacaDisponible);
+        return butaca;
+
+//        int butaca=0;
+//        int number;
+//        boolean testing = true;
+//        int contador=0;
+//        if (butacaCheck()) {
+//            do {
+//                number = (int)(Math.random() * this.capacidad);
+//                for (int i : this.butacasCompradas){
+//                    contador += 1;
+//                    if (i == number) {
+//                        butaca = number;
+//                        this.butacasCompradas[contador] = 0;
+//                        testing = false;
+//                        break;
+//                    }
+//                }
+//            } while (testing);
+//        } else {
+//            System.out.println("No quedan Butacas");
+//        }
+//        return butaca;
     }
 
     public int[] getButacasCompradas() {
