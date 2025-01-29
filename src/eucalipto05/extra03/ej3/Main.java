@@ -1,5 +1,7 @@
 package eucalipto05.extra03.ej3;
 
+import java.sql.SQLOutput;
+
 public class Main {
     public static void main(String[] args) {
         Procesador pro1 = new Procesador("Proce1");
@@ -17,9 +19,11 @@ public class Main {
         ord1.getPlacabase().getDiscoduro().instalarJuego(jue01);
         ord1.getPlacabase().getDiscoduro().mostrarJuegos();
         System.out.println(ord1.getPlacabase().getDiscoduro().espacioDisponible);
+        System.out.println("...................");
         ord1.getPlacabase().getDiscoduro().instalarJuego(jue02);
         ord1.getPlacabase().getDiscoduro().mostrarJuegos();
         System.out.println(ord1.getPlacabase().getDiscoduro().espacioDisponible);
+        System.out.println("...................");
         ord1.getPlacabase().getDiscoduro().instalarJuego(jue03);
         ord1.getPlacabase().getDiscoduro().mostrarJuegos();
         System.out.println(ord1.getPlacabase().getDiscoduro().espacioDisponible);
