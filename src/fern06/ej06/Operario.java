@@ -1,4 +1,15 @@
 package fern06.ej06;
 
-public class Operario {
+public class Operario extends Empleado{
+    public Operario() {
+    }
+
+    public Operario(String nombre) {
+        super(nombre);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " -> Operario";
+    }
 }
